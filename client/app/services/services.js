@@ -1,17 +1,26 @@
 angular.module('shortly.services', [])
-
+// just a controller than can be used by a lot of different modules
 .factory('Links', function ($http) {
- var getAll = function(linkScope) {
+ var getAll = function(linkscope) {
 
+ // var mockResponse = [
+ //        { title: 'Twitter',
+ //          url: 'https://twitter.com' },
+ //        { title: 'Reddit',
+ //          url: 'https://reddit.com/r/javascript' }
+ //      ];
     return $http({
       method: 'GET',
       url: '/api/links/',
     })
     .then(function (resp) {
-      console.log(linkScope)
-      console.log(resp.data)
-      linkScope.data.links = resp.data;
-      return resp.data;
+      // console.log(linkScope)
+      // console.log(resp.data)
+      // we want to now store the links (in our resp) in our model so
+      // that they can be rendered in the view 
+      // response has built in property data?
+      linkscope.data.links = resp.data;
+      //return resp.data;
     });
 };
 

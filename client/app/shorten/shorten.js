@@ -8,10 +8,10 @@ angular.module('shortly.shorten', [])
     Auth.signout(); 
   }; 
   
-  $scope.addOne = function() {
+  $scope.addLink = function() {
 
     console.log($scope.link.url);
-    Links.addOne($scope.link); 
+    Links.addLink($scope.link); 
     $scope.link.url = '';
   }; 
   // Your code here
